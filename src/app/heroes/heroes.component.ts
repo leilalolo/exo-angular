@@ -9,18 +9,27 @@ import { HEROES } from '../classes/mock-heroes';
 })
 export class HeroesComponent implements OnInit {
 
-  hero : Hero = {
-    id : 1,
-    name : 'Windstorm',
-    
-  };
-
   heroes = HEROES;
 
+  selectedHero : Hero;
+
+  
   constructor() { }
-
-  ngOnInit() {
+  
+   ngOnInit() {
+  //   console.log(
+  //     this.sum(5, 10),
+  //     this.sum(55, 300)
+  //   );
   }
+  
+  // sum(a: number, b: number): number {
+  //   return a + b;
+  // }
 
+
+  onSelect(param: Hero): void {
+    this.selectedHero = param;
+  }
 }
 
