@@ -13,6 +13,8 @@ export class HeroesComponent implements OnInit {
 
   selectedHero : Hero;
 
+  redElement = false;
+
   
   constructor() { }
   
@@ -31,5 +33,15 @@ export class HeroesComponent implements OnInit {
   onSelect(param: Hero): void {
     this.selectedHero = param;
   }
+
+  fromChild(): void {
+    if(redElement = true){
+      redElement = false;
+    } else if(redElement = false){
+      redElement = true;
+    }
+    console.log("coucou")
+  }
+
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Hero } from '../classes/hero';
 
 @Component({
@@ -7,14 +7,21 @@ import { Hero } from '../classes/hero';
   styleUrls: ['./hero-detail.component.scss']
 })
 export class HeroDetailComponent implements OnInit {
-  
+
   @Input() hero : Hero;
+
+  @Output() change = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+
+  fonction(){
+    console.log("salut")
+    this.change.emit();
+  }
  
 
 }
