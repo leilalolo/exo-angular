@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../classes/hero';
+import { HeroService } from '../hero.service';
 import { HEROES } from '../classes/mock-heroes';
 
 @Component({
@@ -9,20 +9,22 @@ import { HEROES } from '../classes/mock-heroes';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes = HEROES;
+  heroes = Hero[];
 
   selectedHero : Hero;
 
   redElement = false;
 
   
-  constructor() { }
+  constructor(private heroService: HeroService) { }
   
    ngOnInit() {
   //   console.log(
   //     this.sum(5, 10),
   //     this.sum(55, 300)
   //   );
+
+    this.getHeroes();
   }
   
   // sum(a: number, b: number): number {
@@ -35,12 +37,19 @@ export class HeroesComponent implements OnInit {
   }
 
   fromChild(): void {
-    if(redElement = true){
-      redElement = false;
-    } else if(redElement = false){
-      redElement = true;
-    }
+    // if(this.redElement === true){
+    //   this.redElement = false;
+    // } else if(this.redElement === false){
+    //   this.redElement = true;
+    // }
+
+    this.redElement = !this.redElement;
+
     console.log("coucou")
+  }
+
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
   }
 
 }

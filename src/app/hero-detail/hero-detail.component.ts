@@ -8,6 +8,8 @@ import { Hero } from '../classes/hero';
 })
 export class HeroDetailComponent implements OnInit {
 
+  btn = false;
+
   @Input() hero : Hero;
 
   @Output() change = new EventEmitter<void>();
@@ -18,7 +20,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
 
-  fonction(){
+  clickFunction(){
     console.log("salut")
     this.change.emit();
   }
